@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:wavedirect/account%20page/account_info.dart';
 import 'package:wavedirect/account%20page/current_plan.dart';
 import '../global widgets/circular_menu.dart';
 
@@ -16,9 +17,9 @@ class _AccountPageState extends State<AccountPage> {
     const _hyperlinkColor = Color(0xFF3366BB);
 
     return Scaffold(
-      appBar: AppBar(
+      /*appBar: AppBar(
         title: Text(
-          'WaveDirect',
+          'Account Information',
           style: TextStyle(
             fontWeight: FontWeight.normal,
             fontFamily: _font,
@@ -26,21 +27,28 @@ class _AccountPageState extends State<AccountPage> {
           ),
         ),
         backgroundColor: _secondaryColor,
-      ),
+      ),*/
+      backgroundColor: Colors.white,
       body: Container(
-        padding: EdgeInsets.all(32.0),
         child: Center(
-          child: Expanded(
-            child: Column(
-              children: <Widget>[
-                CurrentPlan(
+          child: ListView(
+            scrollDirection: Axis.vertical,
+            children: <Widget>[
+              AccountInfo(
+                secondaryColor: _secondaryColor,
+                font: _font,
+                dividerColor: _dividerColor,
+              ),
+              Container(
+                padding: EdgeInsets.only(left: 32.0, bottom: 32.0, right: 32.0),
+                child: CurrentPlan(
                   secondaryColor: _secondaryColor,
                   font: _font,
                   dividerColor: _dividerColor,
                   hyperlinkColor: _hyperlinkColor,
                 ),
-              ],
-            ),
+              ),
+            ],
           ),
         ),
       ),

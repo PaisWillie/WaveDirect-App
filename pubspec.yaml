@@ -26,6 +26,7 @@ dependencies:
   fab_circular_menu: ^1.0.0
   google_fonts: ^1.1.0
   highlighter_coachmark: ^0.0.3
+  image_picker: ^0.6.7+11
 
 
   # The following adds the Cupertino Icons font to your application.
@@ -50,7 +51,8 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
     - assets/images/WaveDirect_Logo.png
-  #   - images/a_dot_burr.jpeg
+    - assets/images/profile_picture.png
+    #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

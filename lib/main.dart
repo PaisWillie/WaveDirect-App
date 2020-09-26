@@ -6,7 +6,10 @@ import 'account page/account_page.dart';
 // import 'package:highlighter_coachmark/highlighter_coachmark.dart';
 // import 'package:google_fonts/google_fonts.dart';
 
-void main() => runApp(MaterialApp(home: MyApp()));
+void main() => runApp(MaterialApp(
+      home: MyApp(),
+      debugShowCheckedModeBanner: false,
+    ));
 
 class MyApp extends StatefulWidget {
   @override
