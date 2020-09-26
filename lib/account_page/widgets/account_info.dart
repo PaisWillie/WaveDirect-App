@@ -23,16 +23,57 @@ class _AccountInfoState extends State<AccountInfo> {
   final picker = ImagePicker();
   String firstName = 'Vivan';
 
-  Future getImage() async {
+  void _imageGalleryOrCamera() {
+    showModalBottomSheet<void>(
+      context: context,
+      builder: (BuildContext context) {
+        return Container(
+          padding: EdgeInsets.all(5.0),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              FlatButton(
+                child: Text('From Gallery'),
+                onPressed: getImageGallery,
+              ),
+              Icon(Icons.compare_arrows),
+              FlatButton(
+                child: Text('From Camera'),
+                onPressed: getImageCamera,
+              ),
+            ],
+          ),
+        );
+      },
+    );
+  }
+
+  Future getImageGallery() async {
     final pickedFile = await picker.getImage(source: ImageSource.gallery);
 
-    setState(() {
-      if (pickedFile != null) {
-        _image = File(pickedFile.path);
-      } else {
-        print('No image selected.');
-      }
-    });
+    setState(
+      () {
+        if (pickedFile != null) {
+          _image = File(pickedFile.path);
+        } else {
+          print('No image selected.');
+        }
+      },
+    );
+  }
+
+  Future getImageCamera() async {
+    final pickedFile = await picker.getImage(source: ImageSource.camera);
+
+    setState(
+      () {
+        if (pickedFile != null) {
+          _image = File(pickedFile.path);
+        } else {
+          print('No image selected.');
+        }
+      },
+    );
   }
 
   @override
@@ -91,7 +132,7 @@ class _AccountInfoState extends State<AccountInfo> {
               Positioned(
                 top: 96.0,
                 child: RawMaterialButton(
-                  onPressed: getImage,
+                  onPressed: _imageGalleryOrCamera,
                   elevation: 12.0,
                   fillColor: Colors.white,
                   child: Icon(
@@ -115,13 +156,35 @@ class _AccountInfoState extends State<AccountInfo> {
                 top: 32.0,
               ),
               Positioned(
-                child: Text(
-                  '$firstName',
-                  style: TextStyle(
-                    fontFamily: widget.font,
-                    fontSize: 40.0,
-                    color: Colors.white,
-                  ),
+                child: Row(
+                  children: [
+                    Text(
+                      '$firstName',
+                      style: TextStyle(
+                        fontFamily: widget.font,
+                        fontSize: 40.0,
+                        color: Colors.white,
+                      ),
+                    ),
+                    Container(
+                      padding: EdgeInsets.only(
+                        left: 8.0,
+                      ),
+                      alignment: Alignment.bottomLeft,
+                      width: 60.0,
+                      child: FlatButton(
+                        onPressed: () => {},
+                        child: Align(
+                          alignment: Alignment.bottomLeft,
+                          child: Icon(
+                            Icons.edit,
+                            color: Colors.white,
+                            size: 16.0,
+                          ),
+                        ),
+                      ),
+                    )
+                  ],
                 ),
                 left: 150.0,
                 top: 45.0,
