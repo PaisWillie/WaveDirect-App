@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:wavedirect/account%20page/current_plan.dart';
 import '../global widgets/circular_menu.dart';
 
 class AccountPage extends StatefulWidget {
@@ -9,8 +10,10 @@ class AccountPage extends StatefulWidget {
 class _AccountPageState extends State<AccountPage> {
   @override
   Widget build(BuildContext context) {
-    final secondaryColor = Color(0xFFb01116);
-    final font = 'Typo-Round';
+    const _secondaryColor = Color(0xFFb01116);
+    const _font = 'Traffolight';
+    const _dividerColor = Color(0xFFC0C0C0);
+    const _hyperlinkColor = Color(0xFF3366BB);
 
     return Scaffold(
       appBar: AppBar(
@@ -18,31 +21,26 @@ class _AccountPageState extends State<AccountPage> {
           'WaveDirect',
           style: TextStyle(
             fontWeight: FontWeight.normal,
-            fontFamily: font,
-            // fontStyle: FontStyle.values,
+            fontFamily: _font,
+            // _fontStyle: _FontStyle.values,
           ),
         ),
-        backgroundColor: secondaryColor,
+        backgroundColor: _secondaryColor,
       ),
       body: Container(
         padding: EdgeInsets.all(32.0),
         child: Center(
-          child: Column(
-            children: <Widget>[
-              Text(
-                'Input Widgets Here!',
-                style: TextStyle(
-                  fontFamily: font,
+          child: Expanded(
+            child: Column(
+              children: <Widget>[
+                CurrentPlan(
+                  secondaryColor: _secondaryColor,
+                  font: _font,
+                  dividerColor: _dividerColor,
+                  hyperlinkColor: _hyperlinkColor,
                 ),
-              ),
-              Text(
-                'Current Plan',
-                style: TextStyle(
-                  fontFamily: font,
-                  fontSize: 32.0,
-                ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),

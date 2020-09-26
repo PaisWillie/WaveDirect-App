@@ -52,7 +52,7 @@ class _MyAppState extends State<MyApp> {
     final primaryColor = Colors.white;
     final secondaryColor = Color(0xFFb01116);
     final nullColor = Color(0xFFAAAFB4);
-    final font = 'Typo-Round';
+    final font = 'Traffolight';
 
     return Scaffold(
       backgroundColor: Color(0xFF5e1919),
@@ -161,7 +161,7 @@ class _MyAppState extends State<MyApp> {
               shape: CircleBorder(),
               padding: const EdgeInsets.all(24.0),
               child: Icon(
-                Icons.announcement,
+                Icons.question_answer,
                 color: nullColor,
                 size: 40.0,
               ),
@@ -171,7 +171,7 @@ class _MyAppState extends State<MyApp> {
               shape: CircleBorder(),
               padding: const EdgeInsets.all(24.0),
               child: Icon(
-                Icons.wifi,
+                Icons.portable_wifi_off,
                 color: nullColor,
                 size: 40.0,
               ),
@@ -181,7 +181,7 @@ class _MyAppState extends State<MyApp> {
               shape: CircleBorder(),
               padding: const EdgeInsets.all(24.0),
               child: Icon(
-                Icons.settings,
+                Icons.people,
                 color: nullColor,
                 size: 40.0,
               ),

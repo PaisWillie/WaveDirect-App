@@ -56,7 +56,7 @@ class CircularMenu extends StatelessWidget {
             shape: CircleBorder(),
             padding: const EdgeInsets.all(24.0),
             child: Icon(
-              Icons.announcement,
+              Icons.question_answer,
               color: secondaryColor,
               size: 40.0,
             ),
@@ -69,7 +69,7 @@ class CircularMenu extends StatelessWidget {
             shape: CircleBorder(),
             padding: const EdgeInsets.all(24.0),
             child: Icon(
-              Icons.wifi,
+              Icons.portable_wifi_off,
               color: secondaryColor,
               size: 40.0,
             ),
@@ -83,7 +83,7 @@ class CircularMenu extends StatelessWidget {
             shape: CircleBorder(),
             padding: const EdgeInsets.all(24.0),
             child: Icon(
-              Icons.settings,
+              Icons.people,
               color: secondaryColor,
               size: 40.0,
             ),
