@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:wavedirect/global_widgets/animation/FadeAnimation.dart';
 import 'package:wavedirect/global_widgets/circular_menu.dart';
 
+// ignore: must_be_immutable
 class Referral extends StatefulWidget {
   final secondaryColor;
   final font;

@@ -7,9 +7,9 @@ import 'dart:convert';
 import 'package:url_launcher/url_launcher.dart';
 
 class MessageScreen extends StatefulWidget {
-  final String UID;
+  final String uid;
 
-  MessageScreen(this.UID);
+  MessageScreen(this.uid);
 
   @override
   _MessageScreenState createState() => _MessageScreenState();
@@ -154,7 +154,7 @@ class _MessageScreenState extends State<MessageScreen> {
                   _cometChat.sendMessage(userMessage: _currentMessage);
                   var data = {
                     'Message': _currentMessage,
-                    'SenderUID': widget.UID
+                    'SenderUID': widget.uid
                   };
                   String result = json.encode(data);
                   setState(() {
@@ -173,7 +173,7 @@ class _MessageScreenState extends State<MessageScreen> {
   Widget buildTile(String data) {
     var result = json.decode(data);
     print(result['SenderUID']);
-    if (result['SenderUID'] == widget.UID) {
+    if (result['SenderUID'] == widget.uid) {
       //Own message
       return Padding(
         padding: const EdgeInsets.only(bottom: 8.0),
@@ -215,7 +215,7 @@ class _MessageScreenState extends State<MessageScreen> {
           children: <Widget>[
             CircleAvatar(
               backgroundImage: AssetImage(
-                  'images/${widget.UID == 'batman' ? 'superman' : 'batman'}.png'),
+                  'images/${widget.uid == 'batman' ? 'superman' : 'batman'}.png'),
               backgroundColor: Colors.white,
             ),
             Flexible(
