@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:fab_circular_menu/fab_circular_menu.dart';
 
 import '../account_page/account.dart';
+import 'package:wavedirect/global_widgets/animation/FadeAnimation.dart';
 
 // import 'package:highlighter_coachmark/highlighter_coachmark.dart';
 // import 'package:google_fonts/google_fonts.dart';
@@ -68,47 +69,76 @@ class _WelcomeState extends State<Welcome> {
               Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  Container(
-                    padding: EdgeInsets.only(top: 64.0),
-                    child: Text(
-                      'Welcome',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold,
-                        fontSize: 48.0,
-                        fontFamily: font,
+                  FadeAnimation(
+                    1.0,
+                    Container(
+                      padding: EdgeInsets.only(top: 64.0),
+                      child: Text(
+                        'Welcome!',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 48.0,
+                          fontFamily: font,
+                        ),
                       ),
                     ),
                   ),
-                ],
-              ),
-              Column(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: <Widget>[
-                  Container(
-                    padding: EdgeInsets.only(right: 48.0, bottom: 2.5),
-                    child: Row(
-                      children: [
-                        Text(
-                          'Start by tapping here!',
-                          style: TextStyle(
-                            fontFamily: font,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.white,
-                            fontSize: 24.0,
-                          ),
-                        ),
-                        Container(
-                          child: Icon(
-                            Icons.arrow_forward_ios,
-                            color: Colors.white,
-                          ),
-                          margin: EdgeInsets.only(left: 8.0),
-                        ),
-                      ],
+                  FadeAnimation(
+                    1.1,
+                    Divider(
+                      thickness: 2.0,
+                      color: Colors.white70,
                     ),
                   ),
+                  FadeAnimation(
+                    1.2,
+                    Container(
+                      padding: EdgeInsets.only(top: 8.0),
+                      width: double.infinity,
+                      child: Text(
+                        'Thank you for joining us!',
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 24.0,
+                          fontFamily: font,
+                        ),
+                      ),
+                    ),
+                  )
                 ],
+              ),
+              FadeAnimation(
+                1.2,
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: <Widget>[
+                    Container(
+                      padding: EdgeInsets.only(right: 48.0, bottom: 2.5),
+                      child: Row(
+                        children: [
+                          Text(
+                            'Start by tapping here!',
+                            style: TextStyle(
+                              fontFamily: font,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.white,
+                              fontSize: 24.0,
+                            ),
+                          ),
+                          Container(
+                            child: Icon(
+                              Icons.arrow_forward_ios,
+                              color: Colors.white,
+                            ),
+                            margin: EdgeInsets.only(left: 8.0),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ],
           ),

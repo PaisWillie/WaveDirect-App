@@ -128,7 +128,8 @@ class LoginPage extends StatelessWidget {
                   height: MediaQuery.of(context).size.height / 3,
                   decoration: BoxDecoration(
                       image: DecorationImage(
-                          image: AssetImage('assets/background.png'),
+                          image:
+                              AssetImage('assets/images/Login_Background.png'),
                           fit: BoxFit.cover)),
                 ))
           ],

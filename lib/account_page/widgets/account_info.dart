@@ -21,7 +21,7 @@ class AccountInfo extends StatefulWidget {
 class _AccountInfoState extends State<AccountInfo> {
   File _image;
   final picker = ImagePicker();
-  String firstName = 'Vivan';
+  String firstName = 'Vivian';
 
   void _imageGalleryOrCamera() {
     showModalBottomSheet<void>(
@@ -145,7 +145,7 @@ class _AccountInfoState extends State<AccountInfo> {
               ),
               Positioned(
                 child: Text(
-                  'Hello, ',
+                  'Wecome back, ',
                   style: TextStyle(
                     fontFamily: widget.font,
                     fontSize: 16.0,
@@ -188,7 +188,33 @@ class _AccountInfoState extends State<AccountInfo> {
                 ),
                 left: 150.0,
                 top: 45.0,
-              )
+              ),
+              Positioned(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      'vivan.mcdonalid@example.com',
+                      style: TextStyle(
+                        fontFamily: widget.font,
+                        fontSize: 14.0,
+                      ),
+                    ),
+                    Container(
+                      height: 4.0,
+                    ),
+                    Text(
+                      '+1 (000)-011-5479',
+                      style: TextStyle(
+                        // fontFamily: widget.font,
+                        fontSize: 14.0,
+                      ),
+                    ),
+                  ],
+                ),
+                left: 150.0,
+                top: 100.0,
+              ),
             ],
           ),
         ),
@@ -201,22 +227,61 @@ class _AccountInfoState extends State<AccountInfo> {
           child: Column(
             children: <Widget>[
               Row(
-                children: <Widget>[
-                  Text(
-                    'Your current billing cycle ends in ',
-                    style: TextStyle(
-                      fontFamily: widget.font,
-                      fontSize: 16.0,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      Align(
+                        alignment: Alignment.centerLeft,
+                        child: Text(
+                          'Your current billing',
+                          style: TextStyle(
+                            fontFamily: widget.font,
+                            fontSize: 16.0,
+                          ),
+                        ),
+                      ),
+                      Row(
+                        children: [
+                          Text(
+                            'cycle ends in ',
+                            style: TextStyle(
+                              fontFamily: widget.font,
+                              fontSize: 16.0,
+                              color: Colors.black,
+                            ),
+                          ),
+                          Text(
+                            '16 days',
+                            style: TextStyle(
+                              fontFamily: widget.font,
+                              fontSize: 16.0,
+                              color: widget.secondaryColor,
+                            ),
+                          ),
+                        ],
+                      )
+                    ],
+                  ),
+                  Align(
+                    alignment: Alignment.centerRight,
+                    child: RaisedButton(
+                      onPressed: () => {},
+                      child: Text(
+                        'Pay now',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontFamily: widget.font,
+                          fontSize: 16.0,
+                        ),
+                      ),
+                      color: widget.secondaryColor,
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10.0),
+                          side: BorderSide(color: Colors.red)),
                     ),
                   ),
-                  Text(
-                    '16 days',
-                    style: TextStyle(
-                      fontFamily: widget.font,
-                      fontSize: 16.0,
-                      color: widget.secondaryColor,
-                    ),
-                  )
                 ],
               ),
             ],

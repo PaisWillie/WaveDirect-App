@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:wavedirect/account_page/widgets/account_info.dart';
-import 'package:wavedirect/account_page/widgets/current_plan.dart';
-import 'package:wavedirect/account_page/widgets/package_select.dart';
+import 'package:wavedirect/account_page/widgets/current_package.dart';
 import '../global_widgets/circular_menu.dart';
 import 'package:wavedirect/global_widgets/animation/FadeAnimation.dart';
 
@@ -49,26 +48,20 @@ class _AccountPageState extends State<AccountPage> {
                   ),
                 ),
               ),
-              FadeAnimation(
-                1.4,
-                PackageSelect(
-                  font: _font,
-                  secondaryColor: _secondaryColor,
-                  packageID: _packageID,
-                  selectHandler: updatePackage,
-                ),
-              ),
+              // FadeAnimation(
+              //   1.4,
+              //   PackageSelect(
+              //     font: _font,
+              //     secondaryColor: _secondaryColor,
+              //     packageID: _packageID,
+              //     selectHandler: updatePackage,
+              //   ),
+              // ),
             ],
           ),
         ),
       ),
       floatingActionButton: CircularMenu(),
     );
-  }
-
-  void updatePackage(int i) {
-    setState(() {
-      _packageID = i;
-    });
   }
 }

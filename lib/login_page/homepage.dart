@@ -24,7 +24,7 @@ class HomePage extends StatelessWidget {
                   FadeAnimation(
                       1,
                       Text(
-                        "Welcome",
+                        "Welcome To",
                         style: TextStyle(
                             fontWeight: FontWeight.bold, fontSize: 30),
                       )),

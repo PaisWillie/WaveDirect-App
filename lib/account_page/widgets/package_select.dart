@@ -1,17 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 // import 'current_plan.dart';
 
 class PackageSelect extends StatefulWidget {
   final font;
   final secondaryColor;
   final int packageID;
-  final Function selectHandler;
 
   PackageSelect({
     @required this.font,
     @required this.secondaryColor,
     @required this.packageID,
-    @required this.selectHandler,
   });
 
   @override
@@ -21,10 +20,42 @@ class PackageSelect extends StatefulWidget {
 class _PackageSelectState extends State<PackageSelect> {
   // int _pageIndex = 0;
 
+  Future<void> _makePhoneCall() async {
+    String url = 'tel:5197379283';
+    if (await canLaunch(url)) {
+      await launch(url);
+    } else {
+      throw 'Could not launch $url';
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
+        Align(
+          alignment: Alignment.center,
+          child: Container(
+            padding: EdgeInsets.only(
+              top: 8.0,
+            ),
+            child: Text(
+              'Available packages',
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                fontFamily: widget.font,
+                fontSize: 24.0,
+              ),
+            ),
+          ),
+        ),
+        Container(
+          padding: EdgeInsets.fromLTRB(32.0, 0.0, 32.0, 4.0),
+          child: Divider(
+            thickness: 3.0,
+            color: Colors.black54,
+          ),
+        ),
         Center(
           child: SizedBox(
             height: 75, // card height
@@ -40,7 +71,7 @@ class _PackageSelectState extends State<PackageSelect> {
                     color: Colors.white,
                     onPressed: i == widget.packageID
                         ? null
-                        : () => widget.selectHandler(i),
+                        : () => null /*Call company phone # */,
                     // hoverColor:
                     // i == _index ? widget.secondaryColor : Colors.white,
                     elevation: 10,
@@ -52,13 +83,12 @@ class _PackageSelectState extends State<PackageSelect> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Text(
-                            "Unlimited ${(i + 1) * 10} ",
+                            i == widget.packageID
+                                ? "Current Package"
+                                : "Unlimited ${(i + 1) * 10} ",
                             style: TextStyle(
                               fontSize: 20,
                               fontFamily: widget.font,
-                              decoration: i == widget.packageID
-                                  ? TextDecoration.lineThrough
-                                  : null,
                             ),
                           ),
                           Row(
@@ -93,6 +123,15 @@ class _PackageSelectState extends State<PackageSelect> {
                 );
               },
             ),
+          ),
+        ),
+        Container(
+          padding: EdgeInsets.only(top: 4.0),
+          child: OutlineButton(
+            onPressed: () => {
+              _makePhoneCall(),
+            },
+            child: Text('Call WaveDirect'),
           ),
         ),
       ],
