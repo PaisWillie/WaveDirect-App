@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:fab_circular_menu/fab_circular_menu.dart';
 
+import 'package:wavedirect/account_page/account.dart';
+import 'package:wavedirect/outage_map_page/outage_map_page.dart';
+import 'package:wavedirect/referral_page/referral.dart';
+import 'package:wavedirect/support_chat/ui/message_screen/message_screen.dart';
+
 class CircularMenu extends StatelessWidget {
   final GlobalKey<FabCircularMenuState> fabKey = GlobalKey();
 
@@ -8,6 +13,8 @@ class CircularMenu extends StatelessWidget {
   Widget build(BuildContext context) {
     final primaryColor = Colors.white /*Theme.of(context).primaryColor*/;
     final secondaryColor = Color(0xFFb01116);
+    const _font = 'Traffolight';
+    const _dividerColor = Color(0xFFC0C0C0);
 
     return Builder(
       builder: (context) => FabCircularMenu(
@@ -39,6 +46,12 @@ class CircularMenu extends StatelessWidget {
             onPressed: () {
               fabKey.currentState.close();
               // _showSnackBar(context, "You pressed 1");
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => AccountPage(),
+                ),
+              );
             },
             shape: CircleBorder(),
             padding: const EdgeInsets.all(24.0),
@@ -51,6 +64,13 @@ class CircularMenu extends StatelessWidget {
           RawMaterialButton(
             onPressed: () {
               fabKey.currentState.close();
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => MessageScreen('Customer'),
+                ),
+              );
+              //
               // _showSnackBar(context, "You pressed 2");
             },
             shape: CircleBorder(),
@@ -64,6 +84,15 @@ class CircularMenu extends StatelessWidget {
           RawMaterialButton(
             onPressed: () {
               fabKey.currentState.close();
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => OutageMap(
+                      secondaryColor: secondaryColor,
+                      font: _font,
+                      dividerColor: _dividerColor),
+                ),
+              );
               // _showSnackBar(context, "You pressed 3");
             },
             shape: CircleBorder(),
@@ -79,6 +108,15 @@ class CircularMenu extends StatelessWidget {
               // _showSnackBar(
               // context, "You pressed 4. This one closes the menu on tap");
               fabKey.currentState.close();
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => Referral(
+                      secondaryColor: secondaryColor,
+                      font: _font,
+                      dividerColor: _dividerColor),
+                ),
+              );
             },
             shape: CircleBorder(),
             padding: const EdgeInsets.all(24.0),

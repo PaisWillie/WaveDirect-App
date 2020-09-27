@@ -19,35 +19,30 @@ class HomePage extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
-              Column(
-                children: <Widget>[
-                  FadeAnimation(
-                      1,
-                      Text(
-                        "Welcome To",
-                        style: TextStyle(
-                            fontWeight: FontWeight.bold, fontSize: 30),
-                      )),
-                  SizedBox(
-                    height: 20,
-                  ),
-                  FadeAnimation(
-                      1.2,
-                      Text(
-                        "Automatic identity verification which enables you to verify your identity",
-                        textAlign: TextAlign.center,
-                        style: TextStyle(color: Colors.grey[700], fontSize: 15),
-                      )),
-                ],
-              ),
+              //   Column(
+              //     children: <Widget>[
+              //       FadeAnimation(
+              //         1,
+              //         Text(
+              //           "WaveDirect",
+              //           style: TextStyle(
+              //             fontWeight: FontWeight.bold,
+              //             fontSize: 45,
+              //             fontFamily: 'Traffolight',
+              //             color: _secondaryColor,
+              //           ),
+              //         ),
+              //       ),
+              //     ],
+              //   ),
               FadeAnimation(
                   1.4,
                   Container(
-                    height: MediaQuery.of(context).size.height / 3,
+                    height: MediaQuery.of(context).size.height / 2,
                     decoration: BoxDecoration(
                         image: DecorationImage(
                             image: AssetImage(
-                                'assets/images/WaveDirect_Illustration.png'))),
+                                'assets/images/WaveDirect_Illustration+Logo.png'))),
                   )),
               Column(
                 children: <Widget>[

@@ -21,7 +21,134 @@ class AccountInfo extends StatefulWidget {
 class _AccountInfoState extends State<AccountInfo> {
   File _image;
   final picker = ImagePicker();
-  String firstName = 'Vivian';
+  String firstName = 'Molly';
+  String email = 'mthomson@goforadrive.com';
+  String address = '89 Arid Rd., Bourhill, ON, Canada';
+  String phone = '(555) 675-6378';
+
+  void _changeInfo(String info) {
+    if (info == 'name') {
+      _showAlert('Change Name', info);
+    } else if (info == 'email') {
+      _showAlert('Change Email', info);
+    } else if (info == 'address') {
+      _showAlert('Change Address', info);
+    } else if (info == 'phone') {
+      _showAlert('Change Phone', info);
+    }
+  }
+
+  _showAlert(String label, String info) async {
+    await showDialog<String>(
+      context: context,
+      child: AlertDialog(
+        contentPadding: const EdgeInsets.all(16.0),
+        content: new Row(
+          children: <Widget>[
+            Expanded(
+              child: TextField(
+                autofocus: true,
+                decoration: InputDecoration(
+                  labelText: label,
+                  hintText: 'Enter new $info here',
+                ),
+                onSubmitted: (String value) => {
+                  if (info == 'name')
+                    {setState(() => firstName = value)}
+                  else if (info == 'email')
+                    {setState(() => email = value)}
+                  else if (info == 'address')
+                    {setState(() => address = value)}
+                  else if (info == 'phone')
+                    {setState(() => phone = value)},
+                  print(firstName)
+                },
+              ),
+            )
+          ],
+        ),
+        actions: <Widget>[
+          new FlatButton(
+              child: const Text('Cancel'),
+              onPressed: () {
+                Navigator.pop(context);
+              }),
+          new FlatButton(
+              child: const Text('Confirm'),
+              onPressed: () {
+                Navigator.pop(context);
+              })
+        ],
+      ),
+    );
+  }
+
+  // Future _showAlert(BuildContext context, String message, String info) async {
+  //   return showDialog(
+  //     context: context,
+  //     child: AlertDialog(
+  //       title: Text(message),
+  //       actions: [
+  //         // Use a flat button to make it look flush with alert dialog
+  //         TextField(
+  //           decoration: InputDecoration(
+  //             // Label above text field
+  //             labelText: 'Hello',
+  //             // Adds hint text to text field that disappears when start typing
+  //             hintText: 'Enter new $info here',
+  //             // Adds icon to left side of text field
+  //             icon: Icon(Icons.people),
+  //           ),
+  //           // Enables autocorrect
+  //           autocorrect: false,
+  //           // Automatically types in text field without clicking on it
+  //           autofocus: true,
+  //           // Sets keyboard type used for text field
+  //           keyboardType: TextInputType.text,
+  //           // Function runs when text changes
+  //           onChanged: (String value) => {},
+  //           // Function runs when text is submitted
+  //         ),
+  //         FlatButton(
+  //           onPressed: () => Navigator.pop(context),
+  //           child: Text('Confirm'),
+  //         ),
+  //       ],
+  //     ),
+  //   );
+  // }
+
+  void _selectInfoToChange() {
+    showModalBottomSheet<void>(
+      context: context,
+      builder: (BuildContext context) {
+        return Container(
+          padding: EdgeInsets.all(5.0),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              FlatButton(
+                child: Text('Address'),
+                onPressed: () => _changeInfo('address'),
+              ),
+              FlatButton(
+                child: Text('Email'),
+                onPressed: () => _changeInfo('email'),
+              ),
+              FlatButton(
+                child: Text('Name'),
+                onPressed: () => _changeInfo('name'),
+              ),
+              FlatButton(
+                child: Text('Phone #'),
+                onPressed: () => _changeInfo('phone'),
+              ),
+            ],
+          ),
+        );
+      },
+    );
+  }
 
   void _imageGalleryOrCamera() {
     showModalBottomSheet<void>(
@@ -173,7 +300,7 @@ class _AccountInfoState extends State<AccountInfo> {
                       alignment: Alignment.bottomLeft,
                       width: 60.0,
                       child: FlatButton(
-                        onPressed: () => {},
+                        onPressed: () => _selectInfoToChange(),
                         child: Align(
                           alignment: Alignment.bottomLeft,
                           child: Icon(
@@ -194,7 +321,7 @@ class _AccountInfoState extends State<AccountInfo> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      'vivan.mcdonalid@example.com',
+                      address,
                       style: TextStyle(
                         fontFamily: widget.font,
                         fontSize: 14.0,
@@ -204,7 +331,17 @@ class _AccountInfoState extends State<AccountInfo> {
                       height: 4.0,
                     ),
                     Text(
-                      '+1 (000)-011-5479',
+                      email,
+                      style: TextStyle(
+                        fontFamily: widget.font,
+                        fontSize: 14.0,
+                      ),
+                    ),
+                    Container(
+                      height: 4.0,
+                    ),
+                    Text(
+                      phone,
                       style: TextStyle(
                         // fontFamily: widget.font,
                         fontSize: 14.0,
