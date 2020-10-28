@@ -4,6 +4,7 @@ A Flutter mobile application made in less than 48 hours! (My first full app, too
 
 1st place winner for BorderHacks 2020 hackathon's WaveDirect Award & People's Choice Award.
 
+Devpost [here](https://devpost.com/software/wavedirect-app)
 
 **Challenge Description**
 
